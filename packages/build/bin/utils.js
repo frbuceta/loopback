@@ -127,7 +127,7 @@ function resolveCLIFromProject(cli, projectRootDir = getPackageDir()) {
  * to true, the command itself will be returned without running it
  */
 function runCLI(cli, args, options) {
-  cli = resolveCLI(cli, options && options.resolveFromProjectFirst);
+  cli = path.join(process.cwd(), 'node_modules', cli);
   args = [cli].concat(args);
   debug('%s', args.join(' '));
   // Keep it backward compatible as dryRun
